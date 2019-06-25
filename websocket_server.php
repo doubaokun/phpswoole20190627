@@ -3,7 +3,8 @@
 $server = new swoole_websocket_server("0.0.0.0", 9501);
 
 $server->on("start", function ($server) {
-    echo "Swoole websocket server is started at tcp://0.0.0.0:9501\n";
+    echo "Swoole websocket server is started at ws://0.0.0.0:9501\n";
+    echo "Swoole HTTP server is started at http://0.0.0.0:9501\n";
 });
 
 $server->on('open', function($server, $req) {
