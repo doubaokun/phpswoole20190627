@@ -1,6 +1,8 @@
 <?php
 
-$server = new swoole_server("0.0.0.0", 9501);
+use Swoole\Server;
+
+$server = new Server("0.0.0.0", 9501);
 
 $server->on("start", function ($server) {
     echo "Swoole TCP server is started at tcp://0.0.0.0:9501\n";

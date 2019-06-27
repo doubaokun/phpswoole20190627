@@ -1,6 +1,8 @@
 <?php
 
-$http = new swoole_http_server("0.0.0.0", 9501);
+use Swoole\Http\Server;
+
+$http = new Server("0.0.0.0", 9501);
 
 $http->on("start", function ($server) {
 	swoole_set_process_name("swoole server");

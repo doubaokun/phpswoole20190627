@@ -1,5 +1,7 @@
 <?php
 
-Swoole\Timer::tick(1000, function () {
+use Swoole\Timer;
+
+Timer::tick(1000, function () {
     echo "Do something...\n";
 });

@@ -1,6 +1,10 @@
 <?php
 
-$server = new swoole_websocket_server("0.0.0.0", 9501);
+use Swoole\Websocket\Server;
+use Swoole\HTTP\Request;
+use Swoole\HTTP\Response;
+
+$server = new Server("0.0.0.0", 9501);
 
 $server->on("start", function ($server) {
     echo "Swoole websocket server is started at ws://0.0.0.0:9501\n";
@@ -18,7 +22,6 @@ $server->on('open', function($server, $req) {
             var_dump($server->clearTimer($id));
         }
     });
-
 });
 
 $server->on('message', function($server, $frame) {
@@ -26,7 +29,7 @@ $server->on('message', function($server, $frame) {
     $server->push($frame->fd, json_encode(["hello", "world"]));
 });
 
-$server->on('request', function (swoole_http_request $request, swoole_http_response $response) {
+$server->on('request', function (Request $request, Response $response) {
 
 $html = <<<HTML
     <b>WebSocket Server</b>
