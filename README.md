@@ -16,6 +16,12 @@ docker run --rm -p 9501:9501 -v $(pwd):/app -w /app swoole-php timer.php
 docker run --rm -p 9501:9501 -v $(pwd):/app -w /app swoole-php coroutine.php
 ```
 
+# Coroutine HTTP client
+
+```bash
+docker run --rm -p 9501:9501 -v $(pwd):/app -w /app swoole-php coroutine_http_client.php
+```
+
 # TCP server
 
 ```bash
